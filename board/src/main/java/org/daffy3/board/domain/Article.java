@@ -23,9 +23,8 @@ import java.util.Set;
         @Index(columnList = "createdAt"),
         @Index(columnList = "createdBy"),
 })
-@EntityListeners(AuditingEntityListener.class)
 @Entity
-public class Article {
+public class Article extends AuditingFields {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -39,13 +38,6 @@ public class Article {
     @OrderBy("id")
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
-
-    // 자동으로 JPA가 세팅해주어야 한다. - JPA Auditing
-    // @Column(nullable = true)이 디폴트이므로 nullable = true일 경우에는 주입시킬 필요가 없다.
-    @CreatedDate @Column(nullable = false) private LocalDateTime createdAt; // 생성일시
-    @CreatedBy @Column(nullable = false, length = 100) private String createdBy; // 생성자
-    @LastModifiedDate @Column(nullable = false) private LocalDateTime modifiedAt; // 수정일시
-    @LastModifiedBy @Column(nullable = false, length = 100) private String modifiedBy; // 수정자
 
     protected Article() {
     }

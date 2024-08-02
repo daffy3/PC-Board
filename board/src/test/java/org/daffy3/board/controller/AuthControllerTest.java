@@ -1,11 +1,10 @@
 package org.daffy3.board.controller;
 
-import org.daffy3.board.config.SecurityConfiguration;
+import org.daffy3.board.config.SecurityConfig;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -14,7 +13,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @DisplayName("View 컨트롤러 - 인증부분")
-@Import(SecurityConfiguration.class)
+@Import(SecurityConfig.class)
 @WebMvcTest // ---> 입력한 컨트롤러만 가볍게 테스트
 public class AuthControllerTest {
 

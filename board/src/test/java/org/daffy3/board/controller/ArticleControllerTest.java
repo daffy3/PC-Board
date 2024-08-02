@@ -1,6 +1,6 @@
 package org.daffy3.board.controller;
 
-import org.daffy3.board.config.SecurityConfiguration;
+import org.daffy3.board.config.SecurityConfig;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @DisplayName("View 컨트롤러 - 게시글")
-@Import(SecurityConfiguration.class)
+@Import(SecurityConfig.class)
 @WebMvcTest(ArticleController.class) // ---> 입력한 컨트롤러만 가볍게 테스트
 class ArticleControllerTest {
 

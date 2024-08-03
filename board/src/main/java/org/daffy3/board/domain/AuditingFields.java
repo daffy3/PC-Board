@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @ToString
 @EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
-public class AuditingFields {
+public abstract class AuditingFields {
 
     // 자동으로 JPA가 세팅해주어야 한다. - JPA Auditing 그래서 @Setter를 넣지 않았다.
     // @Column(nullable = true)이 디폴트이므로 nullable = true일 경우에는 주입시킬 필요가 없다.
